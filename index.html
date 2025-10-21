@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>:=:Cdra. Marcela V. Moffa — Contadora Pública y Asesoría Impositiva</title>
+    <meta name="description" content="Contadora Pública (UBA) y Docente. Asesoramiento impositivo y contable integral para Monotributistas y Responsables Inscriptos. Turnos y consultas en San Luis.">
+    <meta name="author" content="Cdra. Marcela V. Moffa">
+    <link rel="canonical" href="https://www.marcelamoffa-contadora.com.ar/">
+
+    <meta property="og:title" content="Cdra. Marcela V. Moffa — Asesoría Contable, Impositiva y de Gestión">
+    <meta property="og:description" content="Contadora Pública UBA. Especialista en Liquidaciones, Monotributo y Control de Costos Financieros.">
+    <meta property="og:image" content="img/foto2.jpg"> 
+    <meta property="og:url" content="https://www.marcelamoffa-contadora.com.ar/">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23B89C6F%22>MM</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ======================= RESET Y VARIABLES (PALETA CÁLIDA) ======================= */
+        :root {
+            --bg: #F5F5DC; /* Beige claro */
+            --accent: #B89C6F; /* Ocre/Tierra - Énfasis */
+            --secondary-accent: #856E4E; /* Marrón más oscuro para detalle */
+            --text: #4B4B4B; /* Gris topo oscuro */
+            --muted: #8A8A8A; /* Gris medio */
+            --card-bg: #EBEBE0; /* Crema sutil para contenedores */
+
+            --font-main: 'Montserrat', sans-serif;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --border-radius: 8px;
+            --transition-fast: 0.2s ease-out;
+            --transition-med: 0.4s ease-out;
+            --max-width: 1200px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body.nav-open { overflow: hidden; }
+        h1, h2, h3, h4, h5, h6, strong { font-weight: 600; }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        .section { padding: var(--spacing-xl) 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity var(--transition-fast);
+        }
+        a:hover { opacity: 0.8; }
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg);
+            border: 2px solid var(--accent);
+        }
+        .btn-primary:hover {
+             background-color: var(--secondary-accent);
+             box-shadow: 0 8px 20px rgba(184, 156, 111, 0.4);
+             transform: translateY(-2px) scale(1.01);
+        }
+        .text-center { text-align: center; }
+
+        /* ======================= HEADER (ADAPTADO) ======================= */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%; padding: var(--spacing-md) 0;
+            z-index: 1000; transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        .header.scrolled {
+            background-color: rgba(245, 245, 220, 0.95); /* Beige claro semitransparente */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-weight: 700; font-size: 1.5rem; color: var(--text); }
+        .nav-links { display: none; list-style: none; }
+        .nav-links a { color: var(--text); padding: var(--spacing-sm) var(--spacing-md); font-weight: 400; }
+        .menu-toggle { display: block; cursor: pointer; position: relative; z-index: 1001; }
+        .hamburger, .hamburger::before, .hamburger::after { background: var(--text); }
+        .nav-links-mobile {
+            background-color: var(--bg);
+            display: flex; list-style: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(-20px); transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.4s;
+        }
+        .nav-open .nav-links-mobile {
+            opacity: 1; visibility: visible; transform: translateY(0); transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0s;
+        }
+        .nav-links-mobile a { color: var(--text); font-size: 2rem; font-weight: 600; padding: var(--spacing-md) 0; }
+        
+        /* ======================= HERO ======================= */
+        #hero { min-height: 90vh; display: flex; align-items: center; }
+        .hero-content { display: grid; grid-template-columns: 1fr; gap: var(--spacing-xl); align-items: center; }
+        .hero-text { text-align: center; }
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            width: 100%; max-width: 450px; margin: 0 auto;
+        }
+        .hero-title-main {
+            font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; color: var(--text); line-height: 1.1; letter-spacing: 1px;
+        }
+        .hero-title-sub {
+            font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: 600; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-top: var(--spacing-sm);
+        }
+        .hero-description {
+            font-size: 1.1rem; color: var(--muted); max-width: 60ch; margin: var(--spacing-lg) auto 0;
+        }
+        .hero-cta { margin-top: var(--spacing-lg); }
+        
+        /* ======================= SOBRE MÍ ======================= */
+        .about-content { display: grid; gap: var(--spacing-xl); align-items: center; }
+        .about-photo img {
+            border-radius: 50%; width: 250px; height: 250px; object-fit: cover; margin: 0 auto var(--spacing-lg);
+            border: 4px solid var(--card-bg); box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .about-text p {
+            font-size: 1.1rem; margin-bottom: var(--spacing-md); max-width: 65ch; color: var(--muted);
+        }
+        .about-text strong { color: var(--text); }
+        .about-cta { margin-top: var(--spacing-lg); }
+        
+        /* ======================= SERVICIOS (LISTA) ======================= */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        .service-card {
+            background-color: var(--card-bg);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--accent); /* Detalle de color */
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .service-card h3 {
+            color: var(--secondary-accent);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.25rem;
+        }
+        .service-card p { color: var(--text); font-size: 0.95rem; }
+        
+        /* ======================= CONTACTO Y MAPA ======================= */
+        .contact-content {
+            padding-bottom: 0; /* Ajustamos para que el mapa quede pegado al final de la sección */
+        }
+        
+        .map-container {
+            margin: var(--spacing-xl) auto 0;
+            max-width: 100%; /* Ajustamos para que el mapa ocupe todo el ancho del contenedor */
+            border-radius: var(--border-radius);
+            overflow: hidden; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px; 
+            display: block; /* Asegura que no haya espacios extra debajo */
+        }
+
+        /* ======================= FOOTER (ADAPTADO) ======================= */
+        .social-icons a { font-size: 2rem; color: var(--accent); }
+        footer {
+            padding: var(--spacing-lg) 0; text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--card-bg);
+        }
+        .floating-btn {
+            /* Estilos del botón flotante */
+            position: fixed; bottom: 20px; right: 20px; z-index: 999;
+            background-color: #25D366; /* Verde de WhatsApp */
+            border-radius: 50%; width: 56px; height: 56px; display: flex;
+            align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        .floating-btn svg { fill: white; width: 32px; height: 32px; }
+
+        /* Media Queries (Sin cambios estructurales) */
+        @media (min-width: 769px) {
+            .menu-toggle { display: none; }
+            .nav-links-mobile { display: none; }
+            .nav-links { display: flex; gap: var(--spacing-md); }
+            .hero-content { grid-template-columns: 2fr 1fr; }
+            .hero-text { text-align: left; }
+            .hero-description { margin: var(--spacing-lg) 0 0; }
+            .about-content { grid-template-columns: 1fr 2fr; text-align: left; }
+            .about-photo img { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-name">Cdra. Marcela Moffa</div>
+            <div class="preloader-bar-container">
+                <div class="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <header id="header" class="header">
+        <div class="container">
+            <nav class="header-nav">
+                <div class="logo">
+                    <a href="#hero">Cdra. Marcela Moffa</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">Trayectoria</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                 <div class="menu-toggle" id="menu-toggle">
+                    <span class="hamburger"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div id="nav-links-mobile" class="nav-links-mobile">
+        <ul>
+            <li><a href="#about">Trayectoria</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text scroll-animate">
+                        <div class="hero-title-main">Marcela V. Moffa</div>
+                        <div class="hero-title-sub">Contadora Pública | San Luis</div>
+                        <p class="hero-description">
+                            Asesoramiento contable, impositivo y de gestión con enfoque personalizado. Brindo soluciones sólidas para Monotributistas, Responsables Inscriptos y empresas.
+                        </p>
+                        <div class="hero-cta">
+                            <a href="https://wa.me/5491169183250?text=Hola%20Contadora%20Marcela%2C%20quisiera%20una%20consulta%20contable." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Solicitar Consulta</a>
+                        </div>
+                    </div>
+                    <div class="hero-image scroll-animate" style="transition-delay: 150ms;">
+                        <img src="img/foto1.jpg" alt="Cdra. Marcela V. Moffa, Contadora Pública" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section" style="background-color: var(--card-bg);">
+            <div class="container about-content">
+                <div class="about-photo scroll-animate">
+                     <img src="img/foto2.jpg" alt="Retrato de la Cdra. Marcela V. Moffa" loading="lazy">
+                </div>
+                <div class="about-text scroll-animate">
+                    <h2>Mi Trayectoria</h2>
+                    <p>Soy Contadora Pública egresada de la **Universidad de Buenos Aires (UBA)**. Mi enfoque combina la solidez académica con una vasta experiencia práctica en gestión financiera y tributaria.</p>
+                    <p>Formé parte del **Departamento Contable y de Impuestos del Hospital Italiano Bs.As.**, lo que me brindó una visión integral y rigurosa en grandes estructuras.</p>
+                    <p>Actualmente, me desempeño como **Docente en la Universidad Católica de Cuyo, sede San Luis**, manteniendo mi conocimiento actualizado y compartiendo mi experiencia con las nuevas generaciones.</p>
+                    <p><strong>Mi compromiso es simplificar la complejidad impositiva y contable para que te concentres en hacer crecer tu negocio.</strong></p>
+                    <div class="about-cta">
+                        <a href="https://wa.me/5491169183250?text=Hola%20Marcela%2C%20quisiera%20asesoría%20para%20mi%20negocio." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <div class="text-center scroll-animate" style="margin-bottom: var(--spacing-lg);">
+                    <h2>Servicios Contables y de Gestión</h2>
+                    <p style="color: var(--muted); max-width: 70ch; margin: var(--spacing-sm) auto 0;">Asesoría integral y personalizada para asegurar el cumplimiento fiscal y la eficiencia operativa de tu actividad.</p>
+                </div>
+                <div class="services-grid scroll-animate">
+                    <div class="service-card">
+                        <h3>Diagnóstico y Asesoramiento Integral</h3>
+                        <p>Impositivo, contable y de gestión. Análisis completo para optimizar tu situación fiscal y financiera.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Atención a Monotributistas</h3>
+                        <p>Gestión completa, recategorizaciones, facturación, declaraciones juradas y seguimiento de tus obligaciones fiscales.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Responsables Inscriptos</h3>
+                        <p>Liquidaciones de IVA, Ganancias, Bienes Personales y presentación de todos los regímenes informativos.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Inicio de Actividades</h3>
+                        <p>Asesoramiento e inscripciones ante AFIP y Rentas para un comienzo de negocio ordenado y legal.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Análisis de Gestión y Costos</h3>
+                        <p>Elaboración de informes para la toma de decisiones, control de costos financieros y eficiencia operativa.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Liquidaciones Impositivas</h3>
+                        <p>Cálculo y presentación puntual de todas las obligaciones tributarias nacionales y provinciales.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Integraciones y Capacitaciones</h3>
+                        <p>Asistencia en la integración de sistemas de facturación/gestión y capacitaciones al personal.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Medios de Cobro</h3>
+                        <p>Control de costos financieros con diferentes plataformas: Prisma, Banco Nación, Mercado Pago y otros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section" style="background-color: var(--card-bg);">
+            <div class="container contact-content">
+                 <div class="text-center scroll-animate">
+                    <h2>Consulta y Ubicación</h2>
+                    <p style="margin-top: var(--spacing-sm); color: var(--text);">Te espero en mi oficina en **ROMA - Coworking** - Rivadavia 1138, San Luis Capital - o agendá tu consulta virtual.</p>
+                    
+                    <div class="hero-cta" style="margin-top: var(--spacing-lg);">
+                        <a href="https://wa.me/5491169183250?text=Hola%20Marcela%2C%20quisiera%20reservar%20mi%20turno%20contable." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar Ahora por WhatsApp</a>
+                    </div>
+                    
+                    <p style="margin-top: var(--spacing-md); color: var(--muted);">Teléfono de contacto: **11 6918-3250**</p>
+                </div>
+                
+                <div class="map-container scroll-animate" style="transition-delay: 200ms;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3361.649313437533!2d-66.33924702330756!3d-33.30396016147413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d31298e1694b87%3A0x867332e67f08b355!2sRivadavia%201138%2C%20San%20Luis!5e0!3m2!1ses-419!2sar!4v1696614488390!5m2!1ses-419!2sar" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación de ROMA Coworking, Rivadavia 1138, San Luis"
+                    ></iframe>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 hecho por <a href="https://romaoficinas.com.ar" target="_blank" rel="noopener noreferrer">ROMA Coworking</a>. Todos los derechos reservados.</p>
+
+            <p>Cdra. Marcela V. Moffa.</p>
+            <p>Contadora Pública UBA | Docente UCCuyo Sede San Luis.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5491169183250" class="floating-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.11 11.91C2.11 13.68 2.58 15.36 3.42 16.82L2.24 21.73L7.3 20.47C8.75 21.28 10.36 21.7 12.04 21.7C17.49 21.7 21.94 17.25 21.96 11.79C21.96 6.34 17.51 2 12.04 2ZM17.15 15.93C16.89 16.5 15.35 17.39 14.83 17.44C14.32 17.49 13.81 17.44 13.29 17.44C10.63 17.44 8.71 15.37 8.71 12.83C8.71 10.33 10.68 8.24 13.29 8.24C14.54 8.24 15.54 8.72 16.34 9.48C17.14 10.24 17.53 11.45 17.39 12.63L16.27 12.67C16.1 12.59 15.01 12.08 14.81 11.97C14.61 11.86 14.41 11.75 14.24 11.55C14.07 11.35 13.88 11.08 13.68 10.84C13.48 10.6 13.29 10.46 13.1 10.46C12.9 10.46 12.65 10.46 12.45 10.46C12.25 10.46 11.99 10.46 11.66 10.8C11.33 11.13 10.45 12.16 10.45 13.56C10.45 14.96 11.4 16.31 11.66 16.57C11.93 16.83 13.84 17.72 14.64 17.42C15.44 17.12 16.52 16.54 17.15 15.93Z" /></svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Se asume que tienes el CSS para preloader y scroll-animate para que estos scripts funcionen.
+
+            // --- Script de Preloader (simulado) ---
+            const preloader = document.getElementById('preloader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    if (preloader) {
+                        preloader.classList.add('fade-out');
+                        setTimeout(() => preloader.style.display = 'none', 500);
+                    }
+                }, 500);
+            });
+
+            // --- Header Scroll Effect ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('nav-links-mobile');
+            const body = document.body;
+
+            menuToggle.addEventListener('click', () => {
+                body.classList.toggle('nav-open');
+            });
+            
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    body.classList.remove('nav-open');
+                });
+            });
+
+            // --- Scroll Animations (Intersection Observer) ---
+            const animateElements = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+            });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
